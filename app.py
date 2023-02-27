@@ -1,6 +1,6 @@
 from flask import  Flask, render_template, request, jsonify
 
-from chatUtils import get_response
+from chatUtils import ask_bot
 
 app = Flask(__name__)
 
@@ -8,10 +8,14 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.get("/test")
+def test():
+    return "server is working friends"
+
 @app.post("/chat")
 def chat():
     text = request.get_json().get("message")    
-    model_response = get_response(text)
+    model_response = ask_bot(text)
     response = {"data": model_response}
     return jsonify(response)
 

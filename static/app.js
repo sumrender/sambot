@@ -22,7 +22,7 @@ function onSendButton(chatbox) {
   let msg1 = { name: "User", message: text1 };
   messages.push(msg1);
 
-  fetch("http://127.0.0.1:5000/chat", {
+  fetch("http://45.79.126.39/chat", {
     method: "POST",
     body: JSON.stringify({ message: text1 }),
     mode: "cors",
@@ -32,7 +32,8 @@ function onSendButton(chatbox) {
   })
     .then((r) => r.json())
     .then((r) => {
-      let msg2 = { name: "Sam", message: r.data };
+      console.log(r)
+      let msg2 = { name: "Sam", message: r.data?.response };
       messages.push(msg2);
       updateChatText(chatbox);
       textField.value = "";
