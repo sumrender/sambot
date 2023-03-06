@@ -18,6 +18,9 @@ Install dependencies
 $ pip install -r requirements.txt
 ```
 
+Create environment variables in a .env file
+or using console.
+
 Run
 
 ```
